@@ -4,7 +4,7 @@ public class TokenSeguridad extends MetodoAutenticacion{
     private String token;
 
     public TokenSeguridad(int nivelseguridad, String token) {
-        super(nivelseguridad, "Token seguridad");
+        super(nivelseguridad, "token");
         this.token = token;
     }
 
@@ -12,7 +12,7 @@ public class TokenSeguridad extends MetodoAutenticacion{
 
     @Override
     public String toString(){
-        return super.toString();
+        return super.toString()+", Patrón token: "+token;
     }
     @Override
     public boolean autenticar(String dato){

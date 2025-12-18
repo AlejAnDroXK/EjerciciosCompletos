@@ -4,7 +4,7 @@ public class ReconocimientoFacial extends MetodoAutenticacion{
     private String patronRostro;
 
     public ReconocimientoFacial(int nivelseguridad, String patronRostro) {
-        super(nivelseguridad, "Reconocimiento facial");
+        super(nivelseguridad, "rostro");
         this.patronRostro = patronRostro;
     }
 
@@ -13,7 +13,7 @@ public class ReconocimientoFacial extends MetodoAutenticacion{
 
     @Override
     public String toString(){
-        return super.toString()+"Patrón rostro: " + patronRostro;
+        return super.toString()+", Patrón rostro: " + patronRostro;
     }
     @Override
     public boolean autenticar(String dato){

@@ -4,7 +4,7 @@ public class HuellaDigital extends MetodoAutenticacion{
     private  String patronHuella;
 
     public HuellaDigital(int nivelseguridad, String patronHuella) {
-        super(nivelseguridad, "Huella Digital");
+        super(nivelseguridad, "huella");
         this.patronHuella = patronHuella;
     }
 
@@ -13,7 +13,7 @@ public class HuellaDigital extends MetodoAutenticacion{
 
     @Override
     public String toString(){
-        return super.toString()+"Patrón huella: " + patronHuella;
+        return super.toString()+", Patrón huella: " + patronHuella;
     }
     @Override
     public boolean autenticar(String dato){
