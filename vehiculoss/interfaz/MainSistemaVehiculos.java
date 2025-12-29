@@ -1,8 +1,8 @@
-package EjerciciosCompletos.vehiculos.interfaz;
+package EjerciciosCompletos.vehiculoss.interfaz;
 
-import EjerciciosCompletos.vehiculos.negocio.Propietario;
-import EjerciciosCompletos.vehiculos.negocio.Vehiculo;
-import EjerciciosCompletos.vehiculos.util.Utilitario;
+import EjerciciosCompletos.vehiculoss.negocio.Propietario;
+import EjerciciosCompletos.vehiculoss.negocio.Vehiculo;
+import EjerciciosCompletos.vehiculoss.util.Utilitario;
 
 import java.util.List;
 import java.util.Scanner;

@@ -1,9 +1,9 @@
-package EjerciciosCompletos.vehiculos.util;
+package EjerciciosCompletos.vehiculoss.util;
 
-import EjerciciosCompletos.vehiculos.negocio.Auto;
-import EjerciciosCompletos.vehiculos.negocio.Moto;
-import EjerciciosCompletos.vehiculos.negocio.Propietario;
-import EjerciciosCompletos.vehiculos.negocio.Vehiculo;
+import EjerciciosCompletos.vehiculoss.negocio.Auto;
+import EjerciciosCompletos.vehiculoss.negocio.Moto;
+import EjerciciosCompletos.vehiculoss.negocio.Propietario;
+import EjerciciosCompletos.vehiculoss.negocio.Vehiculo;
 
 import java.util.ArrayList;
 import java.util.List;

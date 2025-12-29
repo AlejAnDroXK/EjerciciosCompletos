@@ -1,4 +1,4 @@
-package EjerciciosCompletos.vehiculos.negocio;
+package EjerciciosCompletos.vehiculoss.negocio;
 
 public abstract class Vehiculo{
     private String marca;

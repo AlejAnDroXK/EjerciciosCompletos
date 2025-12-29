@@ -1,4 +1,4 @@
-package EjerciciosCompletos.vehiculos.negocio;
+package EjerciciosCompletos.vehiculoss.negocio;
 
 import java.util.GregorianCalendar;
 
