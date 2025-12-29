@@ -1,4 +1,4 @@
-package EjerciciosCompletos.Vehiculos.negocio;
+package EjerciciosCompletos.vehiculos.negocio;
 
 import java.util.GregorianCalendar;
 
@@ -30,15 +30,19 @@ public class Moto extends Vehiculo {
 
     @Override
     public String toString(){
-        return super.toString() + "\nAltura: " + altura +
-                                    "\nArranque: " + arranque;
+        return super.toString() + "\n      Altura: " + altura +
+                                    "\n      Arranque: " + arranque;
     }
 
     @Override
     public int matricula() {
+        if (matriculado) {
+            return -1; // ya matriculado
+        }
         GregorianCalendar gc=new GregorianCalendar();
         int anio=gc.get(GregorianCalendar.YEAR);
         int calculo= 200-((anio-getAnio())*10);
+        matriculado = true;
         if (calculo>0){
             return calculo;
         }else {

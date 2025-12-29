@@ -1,4 +1,4 @@
-package EjerciciosCompletos.Personas;
+package EjerciciosCompletos.personas.negocio;
 
 public class Persona {
     private String nombre, cedula;
@@ -21,6 +21,6 @@ public class Persona {
 
     @Override
     public String toString() {
-        return  "Nombre='" + nombre + '\'' + ", Cedula='" + cedula + '\'';
+        return  "Nombre=" + nombre + ", Cedula=" + cedula;
     }
 }

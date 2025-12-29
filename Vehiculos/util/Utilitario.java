@@ -1,9 +1,9 @@
-package EjerciciosCompletos.Vehiculos.util;
+package EjerciciosCompletos.vehiculos.util;
 
-import EjerciciosCompletos.Vehiculos.negocio.Auto;
-import EjerciciosCompletos.Vehiculos.negocio.Moto;
-import EjerciciosCompletos.Vehiculos.negocio.Propietario;
-import EjerciciosCompletos.Vehiculos.negocio.Vehiculo;
+import EjerciciosCompletos.vehiculos.negocio.Auto;
+import EjerciciosCompletos.vehiculos.negocio.Moto;
+import EjerciciosCompletos.vehiculos.negocio.Propietario;
+import EjerciciosCompletos.vehiculos.negocio.Vehiculo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +29,7 @@ public class Utilitario {
             System.out.println("El propietario ya existe");
         }
     }
+
 
     //Metodo para devolver datos - Busqueda por parametro
     public Propietario buscarPropietario (String cedula){
@@ -57,35 +58,27 @@ public class Utilitario {
         return null; //En caso de que no haya encontrado
     }
 
-    public List<Vehiculo> buscarVehiciuloMarca(String marca){
+    public List<Vehiculo> buscarVehiculoMarca(String marca) {
         List<Vehiculo> buscar = new ArrayList<>();
-        for (Vehiculo v: vehiculos) {
-            if (v.getMarca().equalsIgnoreCase(marca)){
+        for (Vehiculo v : vehiculos) {
+            if (v.getMarca().equalsIgnoreCase(marca)) {
                 buscar.add(v);
             }
         }
-        return buscar;//devuelve la lista
+        return buscar;
     }
 
-    //metodo q muestra de todos los vehiculos (listas)
-    public String listarVehiculos(){
-        String aux = "";
-        for(int i = 0; i < vehiculos.size(); i++){
-            aux += vehiculos.get(i);
-            aux += "\n";
-
-        }return aux;
-    }
-
-    public String listarNombreAnioArranqueMotoXMarca(String marca){
+    public String buscarMotoMarca(String marca){
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < vehiculos.size(); i++){
             if (vehiculos.get(i).getMarca().equalsIgnoreCase(marca)) {
                 if (vehiculos.get(i) instanceof Moto){
                     Moto m = (Moto) vehiculos.get(i); //For normal - Casting (Cosas que solo estan en una clase se hace Casting)
-                    sb.append("Nombre: " + m.getDuenio().getNombre());
-                    sb.append("Anio: " + m.getAnio());
-                    sb.append("Arranque: " + m.getArranque());
+                    sb.append("\n Nombre: " + m.getDuenio().getNombre());
+                    sb.append("\n     Modelo: " + m.getModelo());
+                    sb.append("\n     Anio: " + m.getAnio());
+                    sb.append("\n     Arranque: " + m.getArranque());
+                    sb.append("\n     Altura: " + m.getAltura());
                     sb.append("\n");
                 }
             }
@@ -93,6 +86,16 @@ public class Utilitario {
         return sb.toString(); //sb es un OBJETO
     }
 
+    //metodo q muestra de todos los vehiculos (listas)
+    public String listarVehiculos(){
+        String aux = "-";
+        for(int i = 0; i < vehiculos.size(); i++){
+            aux += vehiculos.get(i);
+            aux += "\n";
+            aux += "\n-";
+        }
+        return aux;
+    }
     public String listarAutomoviles(){
         StringBuilder sb = new StringBuilder();
         for (Vehiculo v: vehiculos){
@@ -104,9 +107,19 @@ public class Utilitario {
         } return sb.toString();
     }
 
+    public String listarMoto(){
+        StringBuilder sb = new StringBuilder();
+        for (Vehiculo v: vehiculos){
+            if (v instanceof  Moto){
+                Moto a = (Moto) v;
+                sb.append(a);
+                sb.append("\n");
+            }
+        } return sb.toString();
+    }
+
     public String listaPropietarios(){
         StringBuilder sb =new StringBuilder();
-
         for(int i = 0; i < propietarios.size(); i++){
             sb.append(propietarios.get(i).toString());
             sb.append("\n");
@@ -122,19 +135,19 @@ public class Utilitario {
         return -1;
     }
 
-
-
-
     public void menu(){
+        System.out.println("----- MENU -----");
         System.out.println("1. Agregar Propietario");
         System.out.println("2. Asignar Propietario a Auto");
         System.out.println("3. Asignar Propietario a Moto");
         System.out.println("4. Buscar Vehiculos por Marca");
-        System.out.println("5. Listar Vehiiculos");
+        System.out.println("5. Listar Vehiculos");
         System.out.println("6. Listar Propietarios");
         System.out.println("7. Listar Automoviles");
-        System.out.println("8. Listar Motos por Marca");
-        System.out.println("9. Matricular");
-        System.out.println("10. Salir");
+        System.out.println("8. Listar Motos");
+        System.out.println("9. Mostrar Motos por Marca");
+        System.out.println("10. Matricular");
+        System.out.println("11. Salir");
+        System.out.println("----------------");
     }
 }

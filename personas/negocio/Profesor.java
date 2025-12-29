@@ -1,6 +1,6 @@
-package EjerciciosCompletos.Personas;
+package EjerciciosCompletos.personas.negocio;
 
-public class Profesor extends Persona{
+public class Profesor extends Persona {
     private String especialidad;
 
     public Profesor(String nombre, String cedula, String especialidad) {
@@ -17,6 +17,6 @@ public class Profesor extends Persona{
     }
     @Override
     public String toString() {
-        return super.toString() + "\n Especialidad='" + especialidad + '\'';
+        return super.toString() + "\n Especialidad=" + especialidad;
     }
 }

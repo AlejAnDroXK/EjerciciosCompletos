@@ -1,8 +1,8 @@
-package EjerciciosCompletos.Vehiculos.interfaz;
+package EjerciciosCompletos.vehiculos.interfaz;
 
-import EjerciciosCompletos.Vehiculos.negocio.Propietario;
-import EjerciciosCompletos.Vehiculos.negocio.Vehiculo;
-import EjerciciosCompletos.Vehiculos.util.Utilitario;
+import EjerciciosCompletos.vehiculos.negocio.Propietario;
+import EjerciciosCompletos.vehiculos.negocio.Vehiculo;
+import EjerciciosCompletos.vehiculos.util.Utilitario;
 
 import java.util.List;
 import java.util.Scanner;
@@ -29,7 +29,8 @@ public class MainSistemaVehiculos {
             u.menu();
             opc = Integer.parseInt(sc.nextLine());
             switch (opc){
-                case 1: {
+                case 1: {//Agregar Propietario
+                    System.out.println("-----------------");
                     System.out.println("Ingrese cedula: ");
                     cedula= sc.nextLine();
                     System.out.println("Ingrese su nombre: ");
@@ -38,8 +39,10 @@ public class MainSistemaVehiculos {
                     telefono= sc.nextLine();
 
                     u.agregarPropietario(cedula, nombre, telefono);
+                    pausa();
                 }break;
-                case 2: {
+                case 2: {//Asignar Propietario a Auto
+                    System.out.println("-----------------");
                     System.out.println("Ingrese su cedula: ");
                     cedula= sc.nextLine();
                     Propietario p = u.burscarPropietario(cedula);
@@ -59,10 +62,11 @@ public class MainSistemaVehiculos {
                     }else {
                         System.out.println("Propietario No Existe");
                     }
-
+                    pausa();
                 }break;
-                case 3:{
-                    System.out.println("Escriba la cedula del propietario al que le va a asignar un auto: ");
+                case 3:{//Asignar Propietario a Moto
+                    System.out.println("-----------------");
+                    System.out.println("Ingrese su cedula: ");
                     cedula= sc.nextLine();
                     Propietario p= u.buscarPropietario(cedula);
                     u.buscarPropietario(cedula);
@@ -72,53 +76,79 @@ public class MainSistemaVehiculos {
                         System.out.println("Ingrese modelo: ");
                         modelo= sc.nextLine();
                         System.out.println("Ingrese año: ");
-                        anio=sc.nextInt();
+                        anio = Integer.parseInt(sc.nextLine());
                         System.out.println("Ingrese altura: ");
-                        altura= sc.nextDouble();
+                        altura= Double.parseDouble(sc.nextLine());
                         System.out.println("Ingrese arranque: ");
                         arranque=sc.nextLine();
 
                         u.agregarMoto(marca,modelo,anio,p,altura,arranque);
                     }else {
-                        System.out.println("Ya esta asignado");
+                        System.out.println("Propietario No Existe");
                     }
+                    pausa();
                 }break;
-                case 4:{
+                case 4:{//Buscar Vehiculos por Marca
+                    System.out.println("-----------------");
                     System.out.println("Ingrese la marca de vehiculos que quiere buscar: ");
                     marca=sc.nextLine();
-                    List<Vehiculo> lista= u.buscarVehiciuloMarca(marca);
-                    System.out.println(lista);
+                    List<Vehiculo> lista= u.buscarVehiculoMarca(marca);
+                    if (lista.isEmpty()) {
+                        System.out.println("No se encontraron vehiculos de esa marca.");
+                    } else {
+                        System.out.println("\n--------------------------------\n");
+                        for (Vehiculo v : lista) {
+                            System.out.println(v);
+                            System.out.println("--------------------------------");
+                        }
+                    }
+                    pausa();
                 }break;
-                case 5: {
+                case 5: {//Listar Vehiculos
+                    System.out.println("-----------------");
                     System.out.println(u.listarVehiculos());
+                    pausa();
                 }break;
-                case 6: {
+                case 6: {//Listar Propietarios
+                    System.out.println("-----------------");
                     System.out.println(u.listaPropietarios());
+                    pausa();
                 }break;
-                case 7: {
+                case 7: {//Listar Automoviles
+                    System.out.println("-----------------");
                     System.out.println(u.listarAutomoviles());
+                    pausa();
                 }break;
-                case 8: {
+                case 8: {//Listar Motos
+                    System.out.println("-----------------");
+                    System.out.println(u.listarMoto());
+                    pausa();
+                }break;
+                case 9: {//Mostrar Motos por Marca
+                    System.out.println("-----------------");
                     System.out.print("Ingrese la marca de moto a buscar: ");
                     marca = sc.nextLine();
-                    System.out.println(u.listarNombreAnioArranqueMotoXMarca(marca));
+                    System.out.println(u.buscarMotoMarca(marca));
+                    pausa();
                 } break;
-                case 9:{
+                case 10:{//Matricular
+                    System.out.println("-----------------");
                     System.out.println("Escriba la cedula: ");
                     cedula= sc.nextLine();
                     System.out.println("Marca: ");
                     marca= sc.nextLine();
                     System.out.println("Año: ");
                     anio= Integer.parseInt(sc.nextLine());
-
                     int valor= u.matricular(cedula,marca,anio);
                     if (valor!=-1){
                         System.out.println("Valor "+valor+"\nMatriculado");
                     }else{
-                        System.out.println("Se ha producido un error");
+                        System.out.println("Si estan bien los datos esta mattriculado ya, si estan mal vuelva a ingresar los datos");
                     }
+                    pausa();
                 }break;
-                case 10: {
+                case 11: {//salir
+                    System.out.println("-----------------");
                     System.out.println("Saliendo del sistema...");
                     System.exit(0);
                 } break;
@@ -126,6 +156,11 @@ public class MainSistemaVehiculos {
                     System.out.println("Opcion Invalida. Ingrese Nuevamente");
                 }
             }
-        } while (opc != 10);
+        } while (opc != 11);
+    }
+    public static void pausa() {
+        System.out.println("__________Presione enter para continuar__________");
+        Scanner sc = new Scanner(System.in);
+        sc.nextLine();
     }
 }

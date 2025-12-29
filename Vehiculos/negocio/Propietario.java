@@ -1,4 +1,4 @@
-package EjerciciosCompletos.Vehiculos.negocio;
+package EjerciciosCompletos.vehiculos.negocio;
 
 
 public class Propietario {
@@ -34,8 +34,8 @@ public class Propietario {
 
     @Override
     public String toString() {
-        return "\nCedula:  " + cedula +
-                "\nNombre: " + nombre +
-                "\nTelefono: " + telefono;
+        return "\n            Cedula:  " + cedula +
+                "\n            Nombre: " + nombre +
+                "\n            Telefono: " + telefono;
     }
 }

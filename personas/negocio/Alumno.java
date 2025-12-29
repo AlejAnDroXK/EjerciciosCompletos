@@ -1,6 +1,6 @@
-package EjerciciosCompletos.Personas;
+package EjerciciosCompletos.personas.negocio;
 
-public class Alumno extends Persona{
+public class Alumno extends Persona {
     private String universidad;
 
     public Alumno(String nombre, String cedula, String universidad) {

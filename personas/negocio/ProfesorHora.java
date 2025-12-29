@@ -1,6 +1,6 @@
-package EjerciciosCompletos.Personas;
+package EjerciciosCompletos.personas.negocio;
 
-public class ProfesorHora extends Profesor{
+public class ProfesorHora extends Profesor {
     private int horas;
 
     public ProfesorHora(String nombre, String cedula, String especialidad, int horas) {
@@ -18,6 +18,6 @@ public class ProfesorHora extends Profesor{
 
     @Override
     public String toString() {
-        return super.toString() + "\n Horas='" + horas + '\'';
+        return super.toString() + "\n Horas=" + horas;
     }
 }

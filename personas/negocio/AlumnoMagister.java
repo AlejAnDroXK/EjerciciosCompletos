@@ -1,6 +1,6 @@
-package EjerciciosCompletos.Personas;
+package EjerciciosCompletos.personas.negocio;
 
-public class AlumnoMagister extends Alumno{
+public class AlumnoMagister extends Alumno {
     private String tesis;
 
     public AlumnoMagister(String nombre, String cedula, String universidad, String tesis) {
@@ -18,6 +18,6 @@ public class AlumnoMagister extends Alumno{
 
     @Override
     public String toString() {
-        return super.toString() + "\nTesis='" + tesis + '\'' ;
+        return super.toString() + "\nTesis=" + tesis;
     }
 }

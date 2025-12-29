@@ -1,4 +1,4 @@
-package EjerciciosCompletos.Vehiculos.negocio;
+package EjerciciosCompletos.vehiculos.negocio;
 
 public abstract class Vehiculo{
     private String marca;
@@ -51,10 +51,10 @@ public abstract class Vehiculo{
     @Override
     public String toString (){
         return "Marca: " + marca +
-                "\nModelo: " + modelo +
-                "\nAnio: " + anio +
-                "\nPropietario: " + duenio;
+                "\n      Modelo: " + modelo +
+                "\n      Anio: " + anio +
+                "\n      Propietario: " + duenio;
     }
-
+    protected boolean matriculado = false;
     public abstract int matricula();
 }
