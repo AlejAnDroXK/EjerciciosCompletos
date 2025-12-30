@@ -8,13 +8,8 @@ public abstract class Proveedor {
     protected String nombre;
     protected String pais;
 
-    // COMPOSICIÓN:
-    // Un Proveedor "posee" contratos.
-    // Los contratos NO pueden existir sin un proveedor,
-    // por eso se crean y se gestionan desde aquí.
     protected List<Contrato> contratos;
 
-    // CONSTRUCTOR
     public Proveedor(String nombre, String pais) {
         this.nombre = nombre;
         this.pais = pais;

@@ -7,7 +7,6 @@ public class ClienteEmpresa {
     private String nombre;
     private List<Proveedor> proveedores;
 
-    // CONSTRUCTOR
     public ClienteEmpresa(String nombre) {
         this.nombre = nombre;
         proveedores = new ArrayList<>();
