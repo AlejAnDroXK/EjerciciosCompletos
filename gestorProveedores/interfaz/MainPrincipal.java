@@ -12,10 +12,18 @@ public class MainPrincipal {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int opc;
+        int opc = 0;
+
         do {
             menu();
-            opc = Integer.parseInt(sc.nextLine());
+            try {
+                opc = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("ERROR: INGRESE LOS NUMEROS");
+                pausa();
+                continue;
+            }
+
             switch (opc) {
                 case 1: { // Crear proveedor
                     System.out.println("-----------------");
@@ -38,6 +46,7 @@ public class MainPrincipal {
                     pausa();
                 }
                 break;
+
                 case 2: { // Crear cliente empresarial
                     System.out.println("-----------------");
                     System.out.println("Nombre de la empresa cliente:");
@@ -46,6 +55,7 @@ public class MainPrincipal {
                     pausa();
                 }
                 break;
+
                 case 3: { // Asociar proveedor a cliente
                     System.out.println("-----------------");
                     if (clientes.isEmpty()) {
@@ -68,7 +78,8 @@ public class MainPrincipal {
                     pausa();
                 }
                 break;
-                case 4: { // Crear contrato entre proveedor y cliente
+
+                case 4: { // Crear contrato
                     System.out.println("-----------------");
                     if (clientes.isEmpty()) {
                         System.out.println("No hay clientes registrados, ingrese un cliente previamente");
@@ -80,16 +91,19 @@ public class MainPrincipal {
                         pausa();
                         break;
                     }
+
                     ClienteEmpresa cliente = buscarCliente(sc);
                     if (cliente == null) {
                         pausa();
                         break;
                     }
+
                     Proveedor proveedor = buscarProveedor(sc);
                     if (proveedor == null) {
                         pausa();
                         break;
                     }
+
                     boolean asociado = false;
                     for (Proveedor p : cliente.getProveedores()) {
                         if (p.equals(proveedor)) {
@@ -97,23 +111,30 @@ public class MainPrincipal {
                             break;
                         }
                     }
+
                     if (!asociado) {
                         System.out.println("El cliente NOOOO tiene asociado este proveedor");
                         System.out.println("Debe asociarlo antes de crear un contrato en la opcion 3");
                         pausa();
                         break;
                     }
-                    System.out.println("Precio:");
-                    double precio = Double.parseDouble(sc.nextLine());
-                    System.out.println("Duración en meses:");
-                    int meses = Integer.parseInt(sc.nextLine());
-                    proveedor.agregarContrato(new Contrato(precio, meses));
-                    System.out.println("Contrato creado correctamente.");
+
+                    try {
+                        System.out.println("Precio:");
+                        double precio = Double.parseDouble(sc.nextLine());
+                        System.out.println("Duración en meses:");
+                        int meses = Integer.parseInt(sc.nextLine());
+
+                        proveedor.agregarContrato(new Contrato(precio, meses));
+                        System.out.println("Contrato creado correctamente.");
+                    } catch (NumberFormatException e) {
+                        System.out.println("ERROR: INGRESE LOS NUMEROS");
+                    }
                     pausa();
                 }
                 break;
 
-                case 5: { // Verificar si un cliente posee proveedores de un tipo determinado
+                case 5: { // Verificar tipo de proveedor
                     System.out.println("-----------------");
                     if (clientes.isEmpty()) {
                         System.out.println("No hay clientes registrados, ingrese un cliente previamente");
@@ -126,7 +147,7 @@ public class MainPrincipal {
                         String tipo = sc.nextLine();
                         boolean tiene = cliente.tieneProveedorTipo(tipo);
                         if (tiene) {
-                            System.out.println("El cliente si cuenta con proveedores tipo:  " + tipo);
+                            System.out.println("El cliente si cuenta con proveedores tipo: " + tipo);
                         } else {
                             System.out.println("El cliente no cuenta con proveedores tipo: " + tipo);
                         }
@@ -134,6 +155,7 @@ public class MainPrincipal {
                     pausa();
                 }
                 break;
+
                 case 6: { // Listar contratos activos
                     System.out.println("---- CONTRATOS ACTIVOS DEL SISTEMA ----");
                     for (ClienteEmpresa c : clientes) {
@@ -142,12 +164,13 @@ public class MainPrincipal {
                     pausa();
                 }
                 break;
-                case 7: {
+
+                case 7:
                     System.out.println("-----------------");
                     System.out.println("Saliendo del sistema...");
                     System.exit(0);
-                }
-                break;
+                    break;
+
                 default:
                     System.out.println("Opción inválida");
             }
